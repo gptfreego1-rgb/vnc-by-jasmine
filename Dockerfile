@@ -6,7 +6,7 @@ RUN apt update -y && apt install -y dbus-x11 x11-utils x11-xserver-utils x11-app
 RUN apt update -y && apt install -y xubuntu-icon-theme
 RUN wget -q https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/microemu/microemulator-2.0.4.zip && unzip microemulator-2.0.4.zip -d /opt/microemulator && rm microemulator-2.0.4.zip
 RUN wget -q https://files.catbox.moe/zqrena.zip && mv zqrena.zip /opt/microemulator/avatar.jar
-RUN echo '[Desktop Entry]' > /root/Desktop/microemulator.desktop && echo 'Type=Application' >> /root/Desktop/microemulator.desktop && echo 'Name=MicroEmulator' >> /root/Desktop/microemulator.desktop && echo 'Exec=java -noverify -Xmx50m -jar /opt/microemulator/microemulator.jar /opt/microemulator/avatar.jar' >> /root/Desktop/microemulator.desktop && echo 'Icon=utilities-terminal' >> /root/Desktop/microemulator.desktop && echo 'Terminal=false' >> /root/Desktop/microemulator.desktop && chmod +x /root/Desktop/microemulator.desktop
+RUN mkdir -p /root/Desktop && echo '[Desktop Entry]' > /root/Desktop/microemulator.desktop && echo 'Type=Application' >> /root/Desktop/microemulator.desktop && echo 'Name=MicroEmulator' >> /root/Desktop/microemulator.desktop && echo 'Exec=java -noverify -Xmx50m -jar /opt/microemulator/microemulator.jar /opt/microemulator/avatar.jar' >> /root/Desktop/microemulator.desktop && echo 'Icon=utilities-terminal' >> /root/Desktop/microemulator.desktop && echo 'Terminal=false' >> /root/Desktop/microemulator.desktop && chmod +x /root/Desktop/microemulator.desktop
 RUN touch /root/.Xauthority
 EXPOSE 5901
 EXPOSE 6080
